@@ -192,6 +192,10 @@ namespace Circuits.UI
         }
         private static string AddSpaceToCamelCaseName(string name)
         {
+           if (IsAllUpperCase(name))
+            {
+                return name;
+            }
             for (int i = name.Length - 1; i > 0; i--)
             {
                 if (name[i] >= 'A' && name[i] <= 'Z')
@@ -200,6 +204,11 @@ namespace Circuits.UI
                 }
             }
             return name;
+        }
+
+        private static bool IsAllUpperCase(string str)
+        {
+            return str.All(c => c >= 'A' && c <= 'Z');
         }
     }
 }
