@@ -29,5 +29,26 @@ namespace Circuits
             };
             return prefixes[prefixNum];
         }
+
+        public static string AddSpaceToCamelCaseName(string name)
+        {
+            if (IsAllUpperCase(name))
+            {
+                return name;
+            }
+            for (int i = name.Length - 1; i > 0; i--)
+            {
+                if (name[i] >= 'A' && name[i] <= 'Z')
+                {
+                    name = name.Substring(0, i) + " " + name.Substring(i);
+                }
+            }
+            return name;
+        }
+
+        public static bool IsAllUpperCase(string str)
+        {
+            return str.All(c => c >= 'A' && c <= 'Z');
+        }
     }
 }

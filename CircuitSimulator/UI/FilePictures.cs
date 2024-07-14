@@ -185,30 +185,11 @@ namespace Circuits.UI
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center,
             };
-            graphics.DrawString(AddSpaceToCamelCaseName(name), font, brush, textArea, format);
+            graphics.DrawString(Utils.AddSpaceToCamelCaseName(name), font, brush, textArea, format);
             graphics.Dispose();
             
             return img;
         }
-        private static string AddSpaceToCamelCaseName(string name)
-        {
-           if (IsAllUpperCase(name))
-            {
-                return name;
-            }
-            for (int i = name.Length - 1; i > 0; i--)
-            {
-                if (name[i] >= 'A' && name[i] <= 'Z')
-                {
-                    name = name.Substring(0, i) + " " + name.Substring(i);
-                }
-            }
-            return name;
-        }
-
-        private static bool IsAllUpperCase(string str)
-        {
-            return str.All(c => c >= 'A' && c <= 'Z');
-        }
+        
     }
 }
