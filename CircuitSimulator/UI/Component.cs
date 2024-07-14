@@ -32,7 +32,7 @@ namespace Circuits.UI
         {
             mainControl = new DraggableButton(true)
             {
-                BackColor = Color.Red,
+                BackColor = Color.White,
                 Size = new(100, 100)
             };
             mainControl.BackgroundImage = FilePictures.FromType(type, false, true);

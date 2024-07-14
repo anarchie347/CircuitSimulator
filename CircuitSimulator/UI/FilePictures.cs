@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder.Hierarchy;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -150,7 +151,7 @@ namespace Circuits.UI
                 {
                     MessageBox.Show($"No drawing image found for {name}\nExpected file at '{path}'");
                 }
-                return NoImageFound();
+                return NoImageFound(name);
             }
             
         }
@@ -166,13 +167,39 @@ namespace Circuits.UI
                 {
                     MessageBox.Show($"No diagram image found for {name}\nExpected file at '{path}'");
                 }
-                return NoImageFound();
+                return NoImageFound(name);
             }
         }
 
-        private static Image NoImageFound()
+        private static Image NoImageFound(string name)
         {
-            return new Bitmap(300, 300);
+            const int size = 100;
+            const int margin = 10;
+            Bitmap img = new Bitmap(size, size);
+            Graphics graphics = Graphics.FromImage(img);
+            Font font = new("Consolas", 12, FontStyle.Regular, GraphicsUnit.Pixel);
+            Brush brush = new SolidBrush(Color.Red);
+            RectangleF textArea = new RectangleF(margin, margin, size - 2 * margin, size - 2 * margin);
+            StringFormat format = new()
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center,
+            };
+            graphics.DrawString(AddSpaceToCamelCaseName(name), font, brush, textArea, format);
+            graphics.Dispose();
+            
+            return img;
+        }
+        private static string AddSpaceToCamelCaseName(string name)
+        {
+            for (int i = name.Length - 1; i > 0; i--)
+            {
+                if (name[i] >= 'A' && name[i] <= 'Z')
+                {
+                    name = name.Substring(0, i) + " " + name.Substring(i);
+                }
+            }
+            return name;
         }
     }
 }
