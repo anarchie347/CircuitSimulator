@@ -68,3 +68,11 @@ Note: If using a different version of .NET, then the the directory will use the 
 7. Shortcut
 
 You may wish to create a shortcut to the application to add to your desktop or start menu
+
+# Additional information
+
+Troubleshooting: IF you encounter issues, please refer to [Github isses section](https://github.com/anarchie347/CircuitSimulator/issues).
+
+Contributing: Contributions are welcome.
+
+License: This project is licensed under the MIT License. See [LICENSE](https://github.com/anarchie347/CircuitSimulator/blob/main/LICENSE.txt) for more details.
