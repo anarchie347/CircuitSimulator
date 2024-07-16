@@ -131,10 +131,20 @@ To remove saves from a database, open either the `Save` or `Load` dialog and pre
 
 The environment information is saved as part of the save file
 
+# Possible future features
+
+The following are idea that *may* get added in the future. There is not guarantee that this project will recieve any updates
+
+- Ability to combine multiple database files
+- Auto simulate function that reruns the simulation when any changes are made
+- Efficiency improvements to some of the algorithms (notably the matrix inverting algorithm)
+
 # Additional information
 
 Troubleshooting: IF you encounter issues, please refer to [Github isses section](https://github.com/anarchie347/CircuitSimulator/issues).
 
-Contributing: Contributions are welcome.
+Contributing: Contributions are welcome. You may wish to refer to [Github isses section](https://github.com/anarchie347/CircuitSimulator/issues) or [Possible future features](#possible-future-features)
 
 License: This project is licensed under the MIT License. See [LICENSE](https://github.com/anarchie347/CircuitSimulator/blob/main/LICENSE.txt) for more details.
+
+This README file may be updated between releases without a new release being published, so check the most up to date version in the reppsitory, rather than a download of a release
